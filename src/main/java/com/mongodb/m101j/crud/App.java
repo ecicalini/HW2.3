@@ -57,12 +57,7 @@ public class App {
         Integer student_id = null;
         for (Document student : students) {
             Integer current_student_id = (Integer) student.get("student_id");
-            if(student_id == null){
-                student_id = current_student_id;
-                collection.deleteOne(student);
-            }
-
-            if(!student_id.equals(current_student_id)){
+            if(student_id == null || !student_id.equals(current_student_id)){
                 student_id = current_student_id;
                 collection.deleteOne(student);
             }
